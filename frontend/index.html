@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tokenized Time Tracking</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.1/dist/web3.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .container {
+        width: 50%;
+        margin: auto;
+      }
+      h1 {
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        font-weight: bold;
+      }
+      input[type="number"],
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Tokenized Time Tracking</h1>
+
+      <div id="account-info">
+        <p>Account: <span id="account"></span></p>
+        <button onclick="connectMetaMask()">Connect MetaMask</button>
+      </div>
+
+      <div id="log-time-section">
+        <h2>Log Time Worked</h2>
+        <div class="form-group">
+          <label for="project-id">Project ID:</label>
+          <input type="number" id="project-id" placeholder="Enter Project ID" />
+        </div>
+        <div class="form-group">
+          <label for="hours-worked">Hours Worked:</label>
+          <input
+            type="number"
+            id="hours-worked"
+            placeholder="Enter Hours Worked"
+          />
+        </div>
+        <div class="form-group">
+          <label for="hourly-rate">Hourly Rate (in tokens):</label>
+          <input
+            type="number"
+            id="hourly-rate"
+            placeholder="Enter Hourly Rate"
+          />
+        </div>
+        <button onclick="logTime()">Log Time</button>
+      </div>
+
+      <div id="approve-time-section">
+        <h2>Approve Time and Make Payment</h2>
+        <div class="form-group">
+          <label for="freelancer-address">Freelancer Address:</label>
+          <input
+            type="text"
+            id="freelancer-address"
+            placeholder="Enter Freelancer Address"
+          />
+        </div>
+        <div class="form-group">
+          <label for="project-id-approve">Project ID:</label>
+          <input
+            type="number"
+            id="project-id-approve"
+            placeholder="Enter Project ID"
+          />
+        </div>
+        <button onclick="approveTime()">Approve Time and Pay</button>
+      </div>
+
+      <div id="error-message" style="color: red"></div>
+      <div id="success-message" style="color: green"></div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
